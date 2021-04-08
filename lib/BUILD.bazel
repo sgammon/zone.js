@@ -14,16 +14,15 @@ ts_deps = [
     "@npm//rxjs",
 ]
 
-ts_visibility = ["//:__subpackages__"]
-
 ts_library(
     name = "lib",
     srcs = glob(["**/*.ts"]),
-    visibility = ts_visibility,
+    visibility = "//visibility:public",
     deps = ts_deps,
 )
 
 filegroup(
     name = "externs",
     srcs = ["lib/closure/zone_externs.js"],
+  visibility = "//visibility:public",
 )
