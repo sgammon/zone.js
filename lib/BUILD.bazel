@@ -3,7 +3,9 @@ load(
     "ts_library",
 )
 
-package(default_visibility = ["//:__pkg__"])
+package(
+    default_visibility = ["//visibility:public"],
+)
 
 exports_files([
     "closure/zone_externs.js",
@@ -17,12 +19,10 @@ ts_deps = [
 ts_library(
     name = "lib",
     srcs = glob(["**/*.ts"]),
-    visibility = "//visibility:public",
     deps = ts_deps,
 )
 
 filegroup(
     name = "externs",
     srcs = ["lib/closure/zone_externs.js"],
-  visibility = "//visibility:public",
 )
